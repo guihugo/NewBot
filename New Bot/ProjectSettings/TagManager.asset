@@ -53,3 +53,6 @@ TagManager:
   - name: Foreground
     uniqueID: 3474962495
     locked: 0
+  - name: "Bot\xE3o"
+    uniqueID: 3504028665
+    locked: 0
