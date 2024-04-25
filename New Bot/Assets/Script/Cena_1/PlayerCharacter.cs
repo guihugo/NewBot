@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -19,24 +20,29 @@ public class PlayerCharacter : MonoBehaviour
         if (currentIndex < gameManager.numeros.Count)
         {
             // Obtém o número atual da lista
-            int movementDirection = gameManager.numeros[currentIndex];
+            int i = gameManager.numeros[currentIndex];
 
             // Move o personagem com base no número atual e na velocidade
-            MoveCharacter(movementDirection);
+            MoveCharacter(i);
 
             // Incrementa o índice para passar para o próximo número na próxima atualização
             currentIndex++;
         }
     }
-    public void MoveCharacter(int movementDirection)
+    public void MoveCharacter(int index)
     {
-        if (movementDirection > 0)
+        int movementDirection = -1;
+        if (index == 1)
         {
-           transform.Translate(Vector3.right * movementDirection * moveSpeed * Time.deltaTime);
+           transform.Translate(Vector3.left * movementDirection * moveSpeed * Time.deltaTime);
         }
-        else if (movementDirection < 0)
+        else if (index == 2)
         {
-            transform.Translate(Vector3.left * movementDirection * moveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * - movementDirection * moveSpeed * Time.deltaTime);
+        }
+        else if (index == 3)
+        {
+            transform.Translate(Vector3.up * - movementDirection * moveSpeed * Time.deltaTime);
         }
     }
 }

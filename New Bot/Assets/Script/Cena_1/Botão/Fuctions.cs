@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FuctionUp : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler,IDropHandler //Para Drag&Drop
+public class Fuctions : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler,IDropHandler //Para Drag&Drop
 {
     [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
