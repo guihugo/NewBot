@@ -1,10 +1,11 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerCharacter : MonoBehaviour
 {
     private GameManager gameManager;
-    private int currentIndex = 0;
     public float moveSpeed;
 
     private void Start()
@@ -14,31 +15,28 @@ public class PlayerCharacter : MonoBehaviour
     
     }
 
-    private void Update()
+    IEnumerator timer()
     {
-        // Verifica se todos os movimentos da lista já foram executados
-        if (currentIndex < gameManager.numeros.Count)
+        for (int i = 1; i < 5; i++)
         {
-            // Obtém o número atual da lista
-            int i = gameManager.numeros[currentIndex];
+            Debug.Log("Iniciando");
 
-            // Move o personagem com base no número atual e na velocidade
-            MoveCharacter(i);
+            int x = gameManager.numeros[i];
+            MoveCharacter(x);
 
-            // Incrementa o índice para passar para o próximo número na próxima atualização
-            currentIndex++;
+            yield return new WaitForSeconds(1);
         }
     }
     public void MoveCharacter(int index)
     {
-        int movementDirection = -1;
+        int movementDirection = -5;
         if (index == 1)
         {
            transform.Translate(Vector3.left * movementDirection * moveSpeed * Time.deltaTime);
         }
         else if (index == 2)
         {
-            transform.Translate(Vector3.right * - movementDirection * moveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * movementDirection * moveSpeed * Time.deltaTime);
         }
         else if (index == 3)
         {
