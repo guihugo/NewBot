@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - SolidObjects
-  - 
+  - PossibleToMove
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3474962495
+    locked: 0
+  - name: PossibleToMove
+    uniqueID: 979750713
     locked: 0
