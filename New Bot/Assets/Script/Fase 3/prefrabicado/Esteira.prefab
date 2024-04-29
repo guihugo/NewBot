@@ -1309,6 +1309,7 @@ GameObject:
   - component: {fileID: 6678796364966273816}
   - component: {fileID: 4698929468129957661}
   - component: {fileID: 3333437766267289039}
+  - component: {fileID: 4358102272840438060}
   m_Layer: 0
   m_Name: Esteira
   m_TagString: Untagged
@@ -1562,6 +1563,27 @@ PolygonCollider2D:
       - {x: 15.936265, y: 7.7061467}
       - {x: 15.987577, y: 10.012404}
   m_UseDelaunayMesh: 0
+--- !u!95 &4358102272840438060
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539140860016423821}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84e2de3eee2ff274ba0576f126edb252, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7766631404811903614
 GameObject:
   m_ObjectHideFlags: 0
