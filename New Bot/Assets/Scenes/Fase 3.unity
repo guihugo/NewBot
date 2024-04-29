@@ -241,7 +241,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 745378479
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -485,7 +485,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 745378479
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -682,7 +682,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 745378479
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1097,7 +1097,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1580052105
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1261,7 +1261,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 985377715
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2424,7 +2424,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1108952801
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3158,7 +3158,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 745378479
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -5650,7 +5650,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 745378479
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -5891,7 +5891,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 745378479
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -6118,7 +6118,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3833515574813918195, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Name
-      value: MapD
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 6762207974384361289, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Size.x
@@ -9066,7 +9066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7539140860016423821, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Name
-      value: EsteiraD
+      value: Esteira
       objectReference: {fileID: 0}
     - target: {fileID: 9004281643285916279, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9319,7 +9319,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -820004801
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -12031,7 +12031,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 745378479
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -12161,7 +12161,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1580052105
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -12404,7 +12404,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1108952801
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -12717,7 +12717,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 745378479
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -13058,7 +13058,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1580052105
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -13172,7 +13172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3833515574813918195, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Name
-      value: MapC
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 6678796364966273816, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_SortingLayer
@@ -16192,7 +16192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7539140860016423821, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Name
-      value: EsteiraC
+      value: Esteira
       objectReference: {fileID: 0}
     - target: {fileID: 9004281643285916279, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16258,7 +16258,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3833515574813918195, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Name
-      value: MapB
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 6762207974384361289, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Size.y
@@ -19198,7 +19198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7539140860016423821, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Name
-      value: EsteiraB
+      value: Esteira
       objectReference: {fileID: 0}
     - target: {fileID: 9004281643285916279, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19400,7 +19400,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -820004801
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -22962,7 +22962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7539140860016423821, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_Name
-      value: EsteiraA
+      value: Esteira
       objectReference: {fileID: 0}
     - target: {fileID: 9004281643285916279, guid: ce10ecbfbf0300640a5d369cab0eefe8, type: 3}
       propertyPath: m_LocalPosition.x
