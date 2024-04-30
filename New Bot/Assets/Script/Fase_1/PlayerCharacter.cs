@@ -15,19 +15,7 @@ public class PlayerCharacter : MonoBehaviour
     
     }
 
-    IEnumerator timer()
-    {
-        for (int i = 1; i < 5; i++)
-        {
-            Debug.Log("Iniciando");
-
-            int x = gameManager.numeros[i];
-            MoveCharacter(x);
-
-            yield return new WaitForSeconds(1);
-        }
-    }
-    public void MoveCharacter(int index)
+    public void MoveCharacter(int index) //Movimentação
     {
         int movementDirection = -5;
         if (index == 1)
