@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Plataform : MonoBehaviour, IDropHandler
 {
     private GameManager gameManager; // Referência ao GameManager
+    
     public void Awake(){
 
         gameManager = FindObjectOfType<GameManager>(); // Encontra o objeto GameManager na cena
