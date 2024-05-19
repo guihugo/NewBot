@@ -1,45 +1,55 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Fuctions : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler,IDropHandler //Para Drag&Drop
+public class CloneAndDrag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private Canvas canvas;
-    private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
+    [SerializeField] private Canvas canvas; // Referência ao Canvas
+    private GameObject clonedObject; // Referência ao objeto clonado
+    private RectTransform clonedRectTransform; // RectTransform do objeto clonado
+    private CanvasGroup clonedCanvasGroup; // CanvasGroup do objeto clonado
 
-    private void Awake(){
-        
-        // Obtém referências aos componentes necessário
-        rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();
-    }
-    public void OnBeginDrag(PointerEventData eventData) //Começar a arrastar objeto
+    public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("OnBeginDrag");
-        canvasGroup.blocksRaycasts = false;
+        // Criar uma cópia do objeto a ser clonado
+        clonedObject = Instantiate(gameObject, canvas.transform);
+        clonedRectTransform = clonedObject.GetComponent<RectTransform>();
+        clonedCanvasGroup = clonedObject.GetComponent<CanvasGroup>();
+
+        // Ajustar a posição do objeto clonado para a posição do cursor
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out localPoint);
+        clonedRectTransform.anchoredPosition = localPoint;
+
+        // Permitir arrastar o clone
+        clonedCanvasGroup.blocksRaycasts = false;
     }
 
-    public void OnDrag(PointerEventData eventData) //Sendo Arrastado
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor; //Move com o mouse
+        // Nada a fazer no início do arraste
     }
 
-    public void OnEndDrag(PointerEventData eventData) //Soltar o objeto
+    public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnEndDrag");
-        canvasGroup.blocksRaycasts = true;
+        // Mover o objeto clonado com o cursor
+        if (clonedRectTransform != null)
+        {
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out localPoint);
+            clonedRectTransform.anchoredPosition = localPoint;
+        }
     }
 
-    public void OnPointerDown(PointerEventData eventData) //Click no objeto
+    public void OnEndDrag(PointerEventData eventData)
     {
-       //Debug.Log("OnPointerDown");
-       //Adicionar ação quando é clicado
-    }
+        // Final do arraste - Impedir que o clone continue sendo arrastado
+        if (clonedObject != null)
+        {
+            // Permitir que o clone bloqueie raycasts novamente
+            clonedCanvasGroup.blocksRaycasts = true;
+        }
 
-    public void OnDrop(PointerEventData eventData) //Objeto é solto
-    {
-        
+        // Não mover o objeto pai
+        clonedObject = null; // Limpar a referência do objeto clonado
     }
-
 }
