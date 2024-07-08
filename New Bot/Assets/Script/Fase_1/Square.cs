@@ -17,7 +17,7 @@ public class Plataform : MonoBehaviour, IDropHandler
         {
             string objetoTag = eventData.pointerDrag.tag;
 
-            //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; PUSH
 
              switch (objetoTag)
             {
