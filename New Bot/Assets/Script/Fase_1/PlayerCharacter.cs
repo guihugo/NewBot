@@ -7,6 +7,7 @@ public class PlayerCharacter : MonoBehaviour
 {
     private GameManager gameManager;
     public float moveSpeed;
+    public float gridSize = 1f;
 
     private void Start()
     {
@@ -20,15 +21,15 @@ public class PlayerCharacter : MonoBehaviour
         int movementDirection = -5;
         if (index == 1)
         {
-           transform.Translate(Vector3.left * movementDirection * moveSpeed * Time.deltaTime);
+           transform.Translate(Vector3.left * movementDirection * gridSize);
         }
         else if (index == 2)
         {
-            transform.Translate(Vector3.right * movementDirection * moveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * movementDirection * gridSize);
         }
         else if (index == 3)
         {
-            transform.Translate(Vector3.up * - movementDirection * moveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.up * - movementDirection * gridSize);
         }
     }
 }

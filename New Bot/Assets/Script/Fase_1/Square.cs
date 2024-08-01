@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Plataform : MonoBehaviour, IDropHandler
 {
     private GameManager gameManager; // Referência ao GameManager
+    
     public void Awake(){
 
         gameManager = FindObjectOfType<GameManager>(); // Encontra o objeto GameManager na cena
@@ -16,7 +17,7 @@ public class Plataform : MonoBehaviour, IDropHandler
         {
             string objetoTag = eventData.pointerDrag.tag;
 
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; PUSH
 
              switch (objetoTag)
             {
