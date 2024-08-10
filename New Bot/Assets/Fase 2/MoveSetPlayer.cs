@@ -16,7 +16,7 @@ public class MoveSetPlayer : MonoBehaviour
 
     private void Awake()
     {
-        botao.onClick.AddListener(OnClickCavalo);
+        botao.onClick.AddListener(OnClickButton);
         Player = GameObject.Find("Player");
         
     }
@@ -30,16 +30,17 @@ public class MoveSetPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void FixedUpdate()
-    {
-        botaoMap.transform.position = new Vector2(Player.transform.position.x + 3.5f, Player.transform.position.y);
-       
+        if (IanDragDrop.moving)
+        {
+            botaoMap.SetActive(false);
+            otherA.SetActive(false);
+            otherB.SetActive(false);
+        }
     }
 
-    private void OnClickCavalo()
+    private void OnClickButton()
     {
+        botaoMap.transform.position = new Vector2(Player.transform.position.x + 3.5f, Player.transform.position.y);
         if (botaoMap.activeInHierarchy)
         {
             botaoMap.SetActive(false);
