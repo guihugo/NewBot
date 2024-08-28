@@ -2061,7 +2061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &507897071
 Transform:
   m_ObjectHideFlags: 0
@@ -5743,6 +5743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attr: {fileID: 11400000, guid: b4cc57a185e9ce1498ceafec3be44474, type: 2}
+  check: 0
 --- !u!58 &1602068716
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5842,7 +5843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2029065601
 Transform:
   m_ObjectHideFlags: 0
@@ -6420,10 +6421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: {fileID: 11400000, guid: b4cc57a185e9ce1498ceafec3be44474, type: 2}
-  distance: 0
   target: {fileID: 0}
   animator: {fileID: 0}
-  check: 0
   ChangeModeEvent:
     m_PersistentCalls:
       m_Calls:
@@ -6439,8 +6438,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  waitTime: 5
+  waitTime: 10
   timer: 0
+  pointsP: []
 --- !u!50 &2131955920
 Rigidbody2D:
   serializedVersion: 4
