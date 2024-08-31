@@ -15,10 +15,10 @@ public class BoxEvent : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if( other.gameObject.tag == "Player" && check == false)
+        if( other.gameObject.tag == "Player" && check != true)
         {   
             check = true;
-            print("Foi");
+            
             touch.Invoke(other);
         }
     }

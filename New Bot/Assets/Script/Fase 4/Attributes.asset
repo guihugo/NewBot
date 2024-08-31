@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Attributes
   m_EditorClassIdentifier: 
   speed: 2
+  mode: 0
+  inDirection: {x: 0, y: 0}
+  shapeType: 0
