@@ -2626,7 +2626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c323ea885949a4cacf6f2522488148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attr: {fileID: 11400000, guid: dd41c8cf94eb6ea44aa27b238274d0e7, type: 2}
+  attr: {fileID: 11400000, guid: 05bc16f65c8dad540a0a450a94fea7df, type: 2}
   player: {fileID: 0}
   enemy: {fileID: 0}
   smoothSpeed: 0.005
@@ -5796,7 +5796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025333c29c4ecd847bbf4ed7efedf1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attr: {fileID: 11400000, guid: dd41c8cf94eb6ea44aa27b238274d0e7, type: 2}
+  attr: {fileID: 11400000, guid: 05bc16f65c8dad540a0a450a94fea7df, type: 2}
 --- !u!114 &1862275565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6423,7 +6423,6 @@ MonoBehaviour:
   attributes: {fileID: 11400000, guid: b4cc57a185e9ce1498ceafec3be44474, type: 2}
   target: {fileID: 0}
   animator: {fileID: 0}
-  lastPosition: {x: 0, y: 0}
   ChangeModeEvent:
     m_PersistentCalls:
       m_Calls:
@@ -6439,10 +6438,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  waitTime: 3
-  timer: 0
   isWaiting: 0
-  pointsP: []
+  waitTime: 3
 --- !u!50 &2131955920
 Rigidbody2D:
   serializedVersion: 4

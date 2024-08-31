@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public EnemyAttr attr;
+    public PlayerAttr attr;
     private Vector3 lockedPosition;
     public Transform player;
     public Transform enemy;

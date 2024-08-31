@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,8 +10,8 @@ public class EnemyAttr : ScriptableObject
     public float speed;
     public bool mode;
     public Vector2 inDirection;
-    
-    private Vector2[] points;
+    public static event Action<EnemyAttr.ShapeType> TipoForma;
+    public Vector2[] points, normalized;
 
     public enum ShapeType // tipos de formatos geométricos
     {
@@ -21,6 +22,7 @@ public class EnemyAttr : ScriptableObject
     public IEnumerator move(Transform enemy, Animator anim)
     {
         points = GeneratePoints(shapeType, enemy);
+        TipoForma?.Invoke(shapeType);
         foreach (Vector2 pos in points)
         {
             while ((Vector2)enemy.position != pos)
@@ -56,7 +58,17 @@ public class EnemyAttr : ScriptableObject
                 points[3] = new Vector2(enemy.position.x, enemy.position.y);
                 break;
         }
-
+        normalized = new Vector2[points.Length];
+        Array.Copy(points, normalized, points.Length);
+        NormalizesPoints(normalized);
+        return points;
+    }
+    public Vector2[] NormalizesPoints(Vector2[] points)
+    {
+        for (int i = 0; i < points.Length; i++)
+        {
+            points[i] = points[i].normalized;
+        }
         return points;
     }
 }

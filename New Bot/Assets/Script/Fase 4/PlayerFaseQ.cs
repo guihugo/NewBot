@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Xml.Linq;
 
 public class PlayerFaseQ : MonoBehaviour
 {
 
-    public EnemyAttr attr;
+    public PlayerAttr attr;
     public static event Action<Transform> Trans;
     private Rigidbody2D rig;
     private UnityEngine.Vector2 _playerDirection;
     private Animator animator;
+
+
+    public int count = 0;
 
     // Start is called before the first frame update
 
@@ -32,10 +36,11 @@ public class PlayerFaseQ : MonoBehaviour
         if (attr.mode)
         {
             animator.SetBool("isMoving", false);
-            // Lógica do player para modo de reconhecimento de padrões
+            
         }
         else
         {
+
             _playerDirection = new UnityEngine.Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             if (_playerDirection != Vector2.zero)
             {
@@ -47,7 +52,18 @@ public class PlayerFaseQ : MonoBehaviour
             {
                 animator.SetBool("isMoving", false);
             }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                StartCoroutine(
+                    SequenciaCorrotina
+                        (
+                           new List<IEnumerator> { SetPointsPlayer() }
+                        )
+                    );
+            }
         }
+        
+        
     }
     void FixedUpdate()
     {
@@ -60,5 +76,34 @@ public class PlayerFaseQ : MonoBehaviour
     {
         attr.mode = !attr.mode;
     }
-    
+    public IEnumerator SetPointsPlayer()
+    {
+        if (count <= attr.points.Length-1)
+        {
+            attr.points[count] = (Vector2)transform.position;
+            count += 1;
+        }
+        else
+        {
+            count = 0;
+
+        }
+        yield return new WaitForSeconds(1);
+
+
+    }
+    private IEnumerator Wait(float time) // Corrotina para esperar um @time tempo, em segundos.
+    {
+        yield return new WaitForSeconds(time);
+    }
+
+    //Função para executar uma lista de corrotinas de maneira sequencial e ordenada.
+    IEnumerator SequenciaCorrotina(List<IEnumerator> coroutines)
+    {
+        foreach (var coroutine in coroutines)
+        {
+            yield return StartCoroutine(coroutine);
+        }
+
+    }
 }
