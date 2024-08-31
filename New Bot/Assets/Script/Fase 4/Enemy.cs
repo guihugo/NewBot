@@ -11,12 +11,9 @@ public class Enemy : MonoBehaviour
 {
     public EnemyAttr attributes; // receber o ScriptableObject do inimigo
 
-    private Vector2 inDirection; // direção que o player está
-    private Vector2 direction,A,B; // 
+    private Vector2 direction, A, B, lastPosition, inDirection; // 
     public Collider2D target;
     public Animator animator;
-
-    private Vector2 lastPosition;
 
     public static event Action<Transform> Trans; //EventoSimples 
     public UnityEvent ChangeModeEvent; //Evento Com ScriptableObject
@@ -44,14 +41,14 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        if (attributes.mode)
+        if (attributes.mode) // O modo do inimigo é assincro ao do player. Dessa maneira o @mode controla se esta em 'idle' ou perseguição.
         {
-            moveTo(target);
+            Chase(target);
         }
-        if(isWaiting)
+        if(isWaiting) // @IsWaiting só para controlar quando entra aqui.
         {
-            isWaiting = false;
-            StartCoroutine
+            isWaiting = false; // Só quero que aconteça uma vez.
+            StartCoroutine // inicio da corrotina
                 (
                     SequenciaCorrotina  // corrotina que garante a execução de corrotinas em sequencia
                         (
@@ -64,30 +61,22 @@ public class Enemy : MonoBehaviour
                         )
                 
                 );
-            //print("foi");
-            //StartCoroutine(attributes.move(transform, animator));
         }
-    }
-
-    
-
-    void OnTargetFind(Collider2D col) 
-    {
-        moveTo(col);
+        
     }
 
     // Escutando evento touch
     void OnEnable()
     {
-        BoxEvent.touch += OnTargetFind;
+        BoxEvent.touch += Chase;
     }
     private void OnDisable()
     {
-        BoxEvent.touch -= OnTargetFind;
-        StopCoroutine(SetAnimations());
+        BoxEvent.touch -= Chase;
+        StopAllCoroutines();
     }
     // refatorar
-    public void moveTo(Collider2D pos)
+    public void Chase(Collider2D pos) // Função para perseguir o player.
     {
         target = pos;
         A = new Vector2(transform.position.x, transform.position.y);
@@ -129,10 +118,10 @@ public class Enemy : MonoBehaviour
             Trans.Invoke(this.transform); // manda o transform position para a câmera. 
             ChangeModeEvent.Invoke(); // informa o player que o modo de jogo mudou.
             animator.SetBool("isMoving", false);
-            OnDisable();    // para o inimigo ficar parado apos a interação
+            //OnDisable();    // para o inimigo ficar parado apos a interação
             isWaiting = true;   // para começar o contador de 10 segundos
         }
-    }
+    } 
     
 
     private IEnumerator SetAnimations() // função para ficar atualizando a cada frame a animação do inimigo.
@@ -142,8 +131,7 @@ public class Enemy : MonoBehaviour
             if ((Vector2)transform.position != lastPosition)
             {
                 // Calcula a variação de posição
-                direction = (Vector2)transform.position - lastPosition;
-                direction = direction.normalized;
+                direction = ((Vector2)transform.position - lastPosition).normalized;
                 animator.SetFloat("x", direction.x);
                 animator.SetFloat("y", direction.y);
                 animator.SetBool("isMoving", true);
@@ -164,12 +152,11 @@ public class Enemy : MonoBehaviour
     {
         ChangeModeEvent.Invoke();
         yield return null;
-    }
+    } // Corrotina para alterar o modo do jogador via evento.
 
-    private IEnumerator Wait(float time)
+    private IEnumerator Wait(float time) // Corrotina para esperar um @time tempo, em segundos.
     {
         yield return new WaitForSeconds(time);
-        print("foi");
     }
 
     //Função para executar uma lista de corrotinas de maneira sequencial e ordenada.

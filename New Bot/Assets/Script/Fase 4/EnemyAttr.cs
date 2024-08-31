@@ -41,19 +41,19 @@ public class EnemyAttr : ScriptableObject
         {
             case ShapeType.Square: // tipo quadrado
                 points = new Vector2[5];
-                points[0] = new Vector2(enemy.position.x+1, enemy.position.y);  // Top-left
-                points[1] = new Vector2(enemy.position.x+1, enemy.position.y+2);   // Top-right
-                points[2] = new Vector2(enemy.position.x-1, enemy.position.y+2);  // Bottom-right
+                points[0] = new Vector2(enemy.position.x+1, enemy.position.y);  
+                points[1] = new Vector2(enemy.position.x+1, enemy.position.y+2);   
+                points[2] = new Vector2(enemy.position.x-1, enemy.position.y+2);  
                 points[3] = new Vector2(enemy.position.x-1, enemy.position.y);
                 points[4] = new Vector2(enemy.position.x, enemy.position.y);
                 break;
 
             case ShapeType.Triangle: // tipo triangulo
                 points = new Vector2[4];
-                points[0] = new Vector2(enemy.position.x + 1, enemy.position.y);   // Top
-                points[1] = new Vector2(enemy.position.x + 0.5f, enemy.position.y+1); // Bottom-left
+                points[0] = new Vector2(enemy.position.x + 1, enemy.position.y);  
+                points[1] = new Vector2(enemy.position.x, enemy.position.y+1); 
                 points[2] = new Vector2(enemy.position.x-1, enemy.position.y);
-                points[3] = new Vector2(enemy.position.x, enemy.position.y);// Bottom-right
+                points[3] = new Vector2(enemy.position.x, enemy.position.y);
                 break;
         }
 

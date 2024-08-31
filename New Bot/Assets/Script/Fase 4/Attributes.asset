@@ -15,4 +15,4 @@ MonoBehaviour:
   speed: 2
   mode: 0
   inDirection: {x: 0, y: 0}
-  shapeType: 0
+  shapeType: 1
