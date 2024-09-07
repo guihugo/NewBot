@@ -10,19 +10,20 @@ public class EnemyAttr : ScriptableObject
     public float speed;
     public bool mode;
     public Vector2 inDirection;
-    public static event Action<EnemyAttr.ShapeType> TipoForma;
+    public static event Action<ShapeType> TipoForma;
     public Vector2[] points, normalized;
 
     public enum ShapeType // tipos de formatos geométricos
     {
+        None,
         Square,
         Triangle
     }
     public ShapeType shapeType;
+
     public IEnumerator move(Transform enemy, Animator anim)
     {
         points = GeneratePoints(shapeType, enemy);
-        TipoForma?.Invoke(shapeType);
         foreach (Vector2 pos in points)
         {
             while ((Vector2)enemy.position != pos)
@@ -39,6 +40,7 @@ public class EnemyAttr : ScriptableObject
 
     public Vector2[] GeneratePoints(ShapeType type, Transform enemy) // gerando uma lista de pontos baseado no tipo geométrico
     {
+        TipoForma.Invoke(shapeType);
         switch (type)
         {
             case ShapeType.Square: // tipo quadrado
@@ -70,5 +72,16 @@ public class EnemyAttr : ScriptableObject
             points[i] = points[i].normalized;
         }
         return points;
+    }
+    public void OnDisable()
+    {
+        points = null;
+        normalized = null;
+    }
+    public void OnEnable()
+    {
+        
+        points = null;
+        normalized = null;
     }
 }

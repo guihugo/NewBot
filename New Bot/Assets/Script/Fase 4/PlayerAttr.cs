@@ -9,12 +9,13 @@ public class PlayerAttr : ScriptableObject
 {
     public float speed;
     public bool mode;
-    public Vector2[] points;
+    public Vector2[] points, normalized;
     public EnemyAttr.ShapeType shapeType;
 
 
     private void OnEnable()
     {
+        shapeType = EnemyAttr.ShapeType.None;
         EnemyAttr.TipoForma += SetTipoForma;
     }
     private void OnDisable()
@@ -23,7 +24,7 @@ public class PlayerAttr : ScriptableObject
     }
 
 
-    public Vector2[] GeneratePoints(EnemyAttr.ShapeType type) // gerando uma lista de pontos baseado no tipo geométrico
+    public void GeneratePoints(EnemyAttr.ShapeType type) // gerando uma lista de pontos baseado no tipo geométrico
     {
         switch (type)
         {
@@ -35,12 +36,12 @@ public class PlayerAttr : ScriptableObject
                 points = new Vector2[4];
                 break;
         }
-
-        return points;
     }
     public void SetTipoForma(EnemyAttr.ShapeType shape)
     {
         shapeType = shape;
+        Debug.Log(shape);
+        Debug.Log(shapeType);
         GeneratePoints(shapeType);
     }
 }
