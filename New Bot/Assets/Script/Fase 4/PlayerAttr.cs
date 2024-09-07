@@ -17,10 +17,14 @@ public class PlayerAttr : ScriptableObject
     {
         shapeType = EnemyAttr.ShapeType.None;
         EnemyAttr.TipoForma += SetTipoForma;
+        points = null;
+        normalized = null;
     }
     private void OnDisable()
     {
         EnemyAttr.TipoForma -= SetTipoForma;
+        points = null;
+        normalized = null;
     }
 
 
@@ -43,6 +47,14 @@ public class PlayerAttr : ScriptableObject
         Debug.Log(shape);
         Debug.Log(shapeType);
         GeneratePoints(shapeType);
+    }
+    public void NormalizesPoints()
+    {
+        normalized = new Vector2[points.Length];
+        for (int i = 0; i < points.Length; i++)
+        {
+            normalized[i] = points[i].normalized;
+        }
     }
 }
 

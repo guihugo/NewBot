@@ -17,7 +17,7 @@ public class PlayerFaseQ : MonoBehaviour
     public int count = 0;
 
     // Start is called before the first frame update
-
+    
     private void Awake()
     {
         
@@ -52,7 +52,7 @@ public class PlayerFaseQ : MonoBehaviour
             {
                 animator.SetBool("isMoving", false);
             }
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.L) && attr.points != null)
             {
                 StartCoroutine(
                     SequenciaCorrotina
@@ -82,6 +82,10 @@ public class PlayerFaseQ : MonoBehaviour
         {
             attr.points[count] = (Vector2)transform.position;
             count += 1;
+            if (count == attr.points.Length)
+            {
+                attr.NormalizesPoints();
+            }
         }
         else
         {

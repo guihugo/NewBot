@@ -113,6 +113,7 @@ public class Enemy : MonoBehaviour
         else 
         {
             inDirection = (B-A).normalized;
+            attributes.inDirection = inDirection;
             Debug.Log("foi");
             attributes.mode = false;
             Trans.Invoke(this.transform); // manda o transform position para a câmera. 

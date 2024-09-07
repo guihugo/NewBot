@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
@@ -45,11 +46,21 @@ public class EnemyAttr : ScriptableObject
         {
             case ShapeType.Square: // tipo quadrado
                 points = new Vector2[5];
-                points[0] = new Vector2(enemy.position.x+1, enemy.position.y);  
+                Vector2 right = new Vector2(inDirection.y, -inDirection.x); // Perpendicular à direção
+                float size = 1.0f;
+                /**   
+                points[0] = new Vector2(enemy.position.x + right.x + 1, enemy.position.y + right.y);  
                 points[1] = new Vector2(enemy.position.x+1, enemy.position.y+2);   
                 points[2] = new Vector2(enemy.position.x-1, enemy.position.y+2);  
                 points[3] = new Vector2(enemy.position.x-1, enemy.position.y);
-                points[4] = new Vector2(enemy.position.x, enemy.position.y);
+                points[4] = new Vector2(enemy.position.x, enemy.position.y); */
+                //gpt code
+                points[0] = (Vector2)enemy.position + right * size;                       // Canto inferior direito
+                points[1] = (Vector2)enemy.position + right * size + inDirection * size;   // Canto superior direito
+                points[2] = (Vector2)enemy.position - right * size + inDirection * size;   // Canto superior esquerdo
+                points[3] = (Vector2)enemy.position - right * size;                      // Canto inferior esquerdo
+                points[4] = enemy.position;
+
                 break;
 
             case ShapeType.Triangle: // tipo triangulo
@@ -75,12 +86,13 @@ public class EnemyAttr : ScriptableObject
     }
     public void OnDisable()
     {
+        inDirection = new Vector2();
         points = null;
         normalized = null;
     }
     public void OnEnable()
     {
-        
+        inDirection = new Vector2();
         points = null;
         normalized = null;
     }
