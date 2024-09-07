@@ -3,11 +3,11 @@ using UnityEngine.EventSystems;
 
 public class Plataform : MonoBehaviour, IDropHandler
 {
-    private GameManager gameManager; // Referência ao GameManager
+    private GameManager gameManager;
     
     public void Awake(){
 
-        gameManager = FindObjectOfType<GameManager>(); // Encontra o objeto GameManager na cena
+        gameManager = FindObjectOfType<GameManager>();
 
     }
     public void OnDrop(PointerEventData eventData)
@@ -22,13 +22,13 @@ public class Plataform : MonoBehaviour, IDropHandler
              switch (objetoTag)
             {
                 case "Left":
-                    gameManager.numeros.Add(1); // Adiciona o valor 1 à lista
+                    gameManager.Numeros.Add(1); 
                     break;
                 case "Right":
-                    gameManager.numeros.Add(2); // Adiciona o valor 2 à lista
+                    gameManager.Numeros.Add(2); 
                     break;
                 case "Up":
-                    gameManager.numeros.Add(3); // Adiciona o valor 2 à lista
+                    gameManager.Numeros.Add(3);
                     break;
 
             }

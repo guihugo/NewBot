@@ -11,12 +11,10 @@ public class PlayerCharacter : MonoBehaviour
 
     private void Start()
     {
-        // Encontra o objeto GameManager
         gameManager = FindObjectOfType<GameManager>();
-    
     }
 
-    public void MoveCharacter(int index) //Movimentação
+    public void MoveCharacter(int index)
     {
         int movementDirection = -5;
         if (index == 1)

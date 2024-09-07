@@ -6,7 +6,7 @@ public class Plataforma : MonoBehaviour
 {
     public GameObject myPrefab;
     public Transform parentTransform;
-    // Start is called before the first frame update
+
     void Start()
     {
         

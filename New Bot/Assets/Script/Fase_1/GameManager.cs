@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool exec = false; //Check Botão
-    public List<int> numeros = new List<int>(); //Lista de inteiro
+
+    public List<int> Numeros = new List<int>(); 
     public PlayerCharacter player;
 
     private void Start()
     {
-        // Encontra o objeto PlayerCharacter
+        
         player = FindObjectOfType<PlayerCharacter>();
     }
 
-    public void OnButtonClick() //Botão
+    public void OnButtonClick()
     {
-        player.StartCoroutine(timer()); //Start Corroutine
+        player.StartCoroutine(Timer());
     }
 
-    IEnumerator timer() //Corroutine
+    IEnumerator Timer() 
     {
-        for (int i = 0; i < numeros.Count; i++) //For para percorrer a lista
+        for (int i = 0; i < Numeros.Count; i++) 
         {
             Debug.Log("Iniciando");
 
-            int x = numeros[i];
-            player.MoveCharacter(x); //Função movimento
+            int x = Numeros[i];
+            player.MoveCharacter(x);
 
-            yield return new WaitForSeconds(1); //Espere
+            yield return new WaitForSeconds(1);
         }
     }
 }
