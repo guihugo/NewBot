@@ -7,6 +7,11 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
 
+
+    public ButtonAttr Button;
+
+    public int direction;
+
     public bool isCloned = false;
     private GameObject clonedObject;
 
@@ -19,6 +24,8 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
         {
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
+
+        direction = Button.Direction;
     }
 
     public void OnPointerDown(PointerEventData eventData)

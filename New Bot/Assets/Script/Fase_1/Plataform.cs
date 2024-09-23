@@ -12,26 +12,19 @@ public class Plataform : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("OnDrop");
-        if (eventData.pointerDrag != null)
+        Drag dragObject = eventData.pointerDrag.GetComponent<Drag>();
+
+
+        if (dragObject != null)
         {
             string objetoTag = eventData.pointerDrag.tag;
 
+            int objectValue = dragObject.direction;
+
+            gameManager.Numeros.Add(objectValue);
+
             //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; PUSH
 
-             switch (objetoTag)
-            {
-                case "Left":
-                    gameManager.Numeros.Add(1); 
-                    break;
-                case "Right":
-                    gameManager.Numeros.Add(2); 
-                    break;
-                case "Up":
-                    gameManager.Numeros.Add(3);
-                    break;
-
-            }
 
         }
 

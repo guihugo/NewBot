@@ -9,9 +9,13 @@ public class ButtonDisplay : MonoBehaviour
 
     public Image artworkImage;
 
+    public int direction;
+
     void Start()
     {
         artworkImage.sprite = button.Image;
+
+        
 
         
     }
