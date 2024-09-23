@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour
 {
-    public Text winText;  // Arraste o Text da UI para este campo no Inspector
+    public Text winText; 
 
     private void Start()
     {
-        winText.gameObject.SetActive(false);  // Oculta o texto inicialmente
+        winText.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,7 +18,7 @@ public class FinishLine : MonoBehaviour
         if (collision.tag == "Player")
         {
             Debug.Log("check");
-            winText.gameObject.SetActive(true);  // Exibe o texto "Você ganhou"
+            winText.gameObject.SetActive(true);
             winText.text = "Você ganhou!";
 
         }

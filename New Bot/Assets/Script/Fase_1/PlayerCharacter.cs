@@ -5,18 +5,15 @@ using UnityEngine.EventSystems;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    private GameManager gameManager;
-    public float moveSpeed;
-    public float gridSize = 1f;
-
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        GameManager gameManager = FindObjectOfType<GameManager>();
     }
 
     public void MoveCharacter(int index)
     {
         int movementDirection = -5;
+        float gridSize = 0.5f;
         if (index == 1)
         {
            transform.Translate(Vector3.left * movementDirection * gridSize);
