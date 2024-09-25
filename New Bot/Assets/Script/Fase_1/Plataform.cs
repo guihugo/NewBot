@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,22 +13,34 @@ public class Plataform : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-        Drag dragObject = eventData.pointerDrag.GetComponent<Drag>();
+        Debug.Log("Drop event triggered");
 
-
-        if (dragObject != null)
+        if (eventData.pointerDrag != null)
         {
-            string objetoTag = eventData.pointerDrag.tag;
+            Debug.Log("Dragged object: " + eventData.pointerDrag.name);
 
-            int objectValue = dragObject.direction;
+            Drag dragObject = eventData.pointerDrag.GetComponent<Drag>();
 
-            gameManager.Numeros.Add(objectValue);
+            if (dragObject != null)
+            {
+                Debug.Log("Drag component found on: " + eventData.pointerDrag.name);
+                string objetoTag = eventData.pointerDrag.tag;
 
-            //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; PUSH
+                int objectValue = dragObject.direction;
 
+                Debug.Log("Object value: " + objectValue);
 
+                gameManager.Numeros.Add(objectValue);
+            }
+            else
+            {
+                Debug.Log("No Drag component found on dragged object");
+            }
         }
-
+        else
+        {
+            Debug.Log("No object was dragged");
+        }
     }
 
 }

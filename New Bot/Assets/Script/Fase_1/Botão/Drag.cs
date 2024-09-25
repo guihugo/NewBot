@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -72,6 +73,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
             );
 
             GetComponent<RectTransform>().anchoredPosition = localPoint;
+
         }
     }
 
