@@ -5362,7 +5362,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 990814279}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 05bc16f65c8dad540a0a450a94fea7df, type: 2}
+        m_TargetAssemblyTypeName: PlayerAttr, Assembly-CSharp
+        m_MethodName: OnClickTriangle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &990814279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5969,7 +5981,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1421010631}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 05bc16f65c8dad540a0a450a94fea7df, type: 2}
+        m_TargetAssemblyTypeName: PlayerAttr, Assembly-CSharp
+        m_MethodName: OnClickSquare
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1421010631
 MonoBehaviour:
   m_ObjectHideFlags: 0

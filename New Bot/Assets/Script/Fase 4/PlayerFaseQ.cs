@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Xml.Linq;
+using Unity.VisualScripting;
 
 public class PlayerFaseQ : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerFaseQ : MonoBehaviour
     private Rigidbody2D rig;
     private UnityEngine.Vector2 _playerDirection;
     private Animator animator;
-
+    private Vector2 lastPosition, direction;
 
     public int count = 0;
 
@@ -36,7 +37,7 @@ public class PlayerFaseQ : MonoBehaviour
         if (attr.mode)
         {
             animator.SetBool("isMoving", false);
-            
+            attr.inDirection = direction;
         }
         else
         {
@@ -47,20 +48,14 @@ public class PlayerFaseQ : MonoBehaviour
                 animator.SetFloat("moveX", _playerDirection.x);
                 animator.SetFloat("moveY", _playerDirection.y);
                 animator.SetBool("isMoving", true);
+                lastPosition = transform.position;
+                direction = ((Vector2)transform.position - lastPosition).normalized;
             }
             else
             {
                 animator.SetBool("isMoving", false);
             }
-            if (Input.GetKeyDown(KeyCode.L) && attr.points != null)
-            {
-                StartCoroutine(
-                    SequenciaCorrotina
-                        (
-                           new List<IEnumerator> { SetPointsPlayer() }
-                        )
-                    );
-            }
+            
         }
         
         
@@ -82,10 +77,6 @@ public class PlayerFaseQ : MonoBehaviour
         {
             attr.points[count] = (Vector2)transform.position;
             count += 1;
-            if (count == attr.points.Length)
-            {
-                attr.NormalizesPoints();
-            }
         }
         else
         {
@@ -110,4 +101,6 @@ public class PlayerFaseQ : MonoBehaviour
         }
 
     }
+
+    
 }

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   mode: 0
-  points:
-  - {x: -3.0280006, y: 2.5319996}
-  - {x: -1.9080014, y: 0.7719995}
-  - {x: -4.3879995, y: 0.7719995}
-  - {x: -2.8680007, y: 2.4519997}
+  points: []
   shapeType: 1
+  inDirection: {x: 0, y: 0}
+  iTriangle: 0
+  iSquare: 0
+  i: 0
