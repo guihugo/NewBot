@@ -19,7 +19,7 @@ public class Plataform : MonoBehaviour, IDropHandler
         {
             Debug.Log("Dragged object: " + eventData.pointerDrag.name);
 
-            Drag dragObject = eventData.pointerDrag.GetComponent<Drag>();
+            Direction dragObject = eventData.pointerDrag.GetComponent<Direction>();
 
             if (dragObject != null)
             {

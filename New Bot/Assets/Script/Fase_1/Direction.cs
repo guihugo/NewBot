@@ -1,15 +1,14 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Direction : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
 
-
-    public ButtonAttr Button;
 
     public int direction;
 
@@ -25,8 +24,6 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
         {
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
-
-        direction = Button.Direction;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -34,7 +31,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
         if (!isCloned)
         {
             clonedObject = Instantiate(gameObject, canvas.transform);
-            Drag cloneDrag = clonedObject.GetComponent<Drag>();
+            Direction cloneDrag = clonedObject.GetComponent<Direction>();
 
             cloneDrag.isCloned = true;
 
@@ -42,10 +39,10 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out localPoint);
             clonedObject.GetComponent<RectTransform>().anchoredPosition = localPoint;
 
-            
+
             clonedObject.transform.SetAsLastSibling();
 
-            
+
             cloneDrag.OnBeginDrag(eventData);
             cloneDrag.OnDrag(eventData);
         }
@@ -55,7 +52,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
     {
         if (isCloned)
         {
-            
+
             OnDrag(eventData);
         }
     }
@@ -79,6 +76,6 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
+
     }
 }
