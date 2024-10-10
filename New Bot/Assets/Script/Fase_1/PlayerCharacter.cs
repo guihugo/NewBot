@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 public class PlayerCharacter : MonoBehaviour
 {
     private Rigidbody2D rb;
+
+    public int movementDirection;
+    public float gridSize;
     private void Start()
     {
         GameManager gameManager = FindObjectOfType<GameManager>();
@@ -14,8 +17,8 @@ public class PlayerCharacter : MonoBehaviour
 
     public void MoveCharacter(int index)
     {
-        int movementDirection = -5;
-        float gridSize = 0.3f;
+        //int movementDirection = -5;
+        //float gridSize = 0.3f;
         if (index == 1)
         {
             transform.Translate(Vector3.left * movementDirection * gridSize);
