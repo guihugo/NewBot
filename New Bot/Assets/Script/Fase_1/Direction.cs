@@ -12,11 +12,14 @@ public class Direction : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public int direction;
 
+    private bool isAnchored;
+
     public bool isCloned = false;
     private GameObject clonedObject;
 
     private void Awake()
     {
+        isAnchored = false;
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
 
@@ -50,10 +53,25 @@ public class Direction : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (isCloned)
         {
+            Debug.Log("begin Drag");
+            if (isAnchored == false)
+            {
+                // Cria uma duplicata do objeto para ser arrastada.
+                clonedObject = GameObject.Instantiate(this.gameObject);
+                clonedObject.transform.SetParent(GameObject.Find("PainelAcoes").transform);
+                clonedObject.GetComponent<RectTransform>().position = rectTransform.position;
+                clonedObject.GetComponent<RectTransform>().rotation = rectTransform.rotation;
+                clonedObject.GetComponent<RectTransform>().localScale = rectTransform.localScale;
+            }
+            else
+            {
+                
+            }
 
-            OnDrag(eventData);
+            // Ajusta a opacidade e bloqueia cliques no objeto arrastável original.
+            canvasGroup.alpha = 0.6f;
+            canvasGroup.blocksRaycasts = false;
         }
     }
 
