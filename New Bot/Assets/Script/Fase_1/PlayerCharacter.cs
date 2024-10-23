@@ -17,8 +17,6 @@ public class PlayerCharacter : MonoBehaviour
 
     public void MoveCharacter(int index)
     {
-        //int movementDirection = -5;
-        //float gridSize = 0.3f;
         if (index == 1)
         {
             transform.Translate(Vector3.left * movementDirection * gridSize);

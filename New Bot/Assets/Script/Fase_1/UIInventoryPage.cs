@@ -25,7 +25,6 @@ namespace Inventory.UI
 
         private void Awake()
         {
-            //mouseFollower.Toggle(false);
             InitializeInventoryUI(3);
         }
 
