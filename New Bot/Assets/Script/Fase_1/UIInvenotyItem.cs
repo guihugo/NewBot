@@ -9,68 +9,35 @@ using UnityEngine.EventSystems;
 namespace Inventory.UI
 {
 
-    public class UIInventoryItem : MonoBehaviour
+    public class UIInventoryItem : MonoBehaviour, IDropHandler
     {
+        public GameObject anchoredGameObj;
+
         private RectTransform rectTransform;
-        
 
-        [SerializeField]
-        private Image itemImage;
-
-        public event Action<UIInventoryItem> OnItemClicked,
-            OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag,
-            OnRightMouseBtnClick;
-
-        private bool empty = true;
-
-        public void Awake()
+        private CanvasGroup canvasGroup;
+        private void Awake()
         {
-            ResetData();
+            rectTransform = GetComponent<RectTransform>();
+            canvasGroup = GetComponent<CanvasGroup>();
         }
-        public void ResetData()
+        public void OnDrop(PointerEventData eventData)
         {
-            itemImage.gameObject.SetActive(true);
-            empty = true;
-        }
-        public void SetData(Sprite sprite, int quantity)
-        {
-            itemImage.gameObject.SetActive(true);
-            itemImage.sprite = sprite;
-            empty = false;
-        }
-        public void OnPointerClick(BaseEventData data)
-        {
-            PointerEventData pointerData = (PointerEventData)data;
-            if (pointerData.button == PointerEventData.InputButton.Right)
+            Debug.Log("Drop");
+            if (eventData.pointerDrag != null && anchoredGameObj == null)
             {
-                OnRightMouseBtnClick?.Invoke(this);
+                anchoredGameObj = Instantiate(eventData.pointerDrag, this.gameObject.transform, true);
+                anchoredGameObj.GetComponent<RectTransform>().position = rectTransform.position;
+                anchoredGameObj.GetComponent<RectTransform>().rotation = rectTransform.rotation;
+                anchoredGameObj.GetComponent<RectTransform>().localScale = rectTransform.localScale;
+                anchoredGameObj.GetComponent<Direction>().Anchor(this.gameObject);
+
+                // Adiciona à fila de ações uma posição após a posição atual na fila.
+                //GameObject.Find("PainelAcoes").GetComponent<PainelAcoes>().Add(queuePosition + 1);
+
+                // Adiciona à fila de arrasto o objeto ancorado e a posição atual na fila.
+                //GameObject.Find("PainelAcoes").GetComponent<Fila>().Add(anchoredGameObj, queuePosition);
             }
-            else
-            {
-                OnItemClicked?.Invoke(this);
-            }
-        }
-
-        public void OnEndDrag()
-        {
-            OnItemEndDrag?.Invoke(this);
-        }
-
-        public void OnBeginDrag()
-        {
-            if (empty)
-                return;
-            OnItemBeginDrag?.Invoke(this);
-        }
-
-        public void OnDrop()
-        {
-            Debug.Log("Teste");
-        }
-
-        public void OnDrag()
-        {
-
         }
     }
 }
