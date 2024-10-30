@@ -15,7 +15,6 @@ public class Direction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private bool isAnchored;
 
-    public bool isCloned = false;
     private GameObject clonedObject;
 
     private GameObject anchoredPlaceholder;
@@ -32,7 +31,7 @@ public class Direction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         if (isAnchored == false)
         {
             clonedObject = GameObject.Instantiate(this.gameObject);
-            clonedObject.transform.SetParent(GameObject.Find("MainPanel").transform);
+            clonedObject.transform.SetParent(GameObject.Find("InventoryContent").transform);
             clonedObject.GetComponent<RectTransform>().position = rectTransform.position;
             clonedObject.GetComponent<RectTransform>().rotation = rectTransform.rotation;
             clonedObject.GetComponent<RectTransform>().localScale = rectTransform.localScale;
