@@ -19,11 +19,14 @@ namespace Inventory.UI
 
         private CanvasGroup canvasGroup;
 
+        private UIInventoryPage inventoryPage;
+
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             canvasGroup = GetComponent<CanvasGroup>();
             gameManager = FindObjectOfType<GameManager>();
+            inventoryPage = FindObjectOfType<UIInventoryPage>();
         }
         public void OnDrop(PointerEventData eventData)
         {
@@ -37,6 +40,8 @@ namespace Inventory.UI
                 anchoredGameObj.GetComponent<Direction>().Anchor(this.gameObject);
 
                 int directionValue = anchoredGameObj.GetComponent<Direction>().direction;
+
+                inventoryPage.InitializeInventoryUI(1);
 
                 gameManager.Numeros.Add(directionValue);
 

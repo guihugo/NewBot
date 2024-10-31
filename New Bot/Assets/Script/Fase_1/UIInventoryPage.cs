@@ -25,7 +25,7 @@ namespace Inventory.UI
 
         private void Awake()
         {
-            InitializeInventoryUI(6);
+            InitializeInventoryUI(1);
         }
 
         public void InitializeInventoryUI(int inventorysize)

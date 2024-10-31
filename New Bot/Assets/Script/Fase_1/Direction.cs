@@ -63,8 +63,6 @@ public class Direction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void Anchor(GameObject ph)
     {
-        Debug.Log("anchor");
-
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
