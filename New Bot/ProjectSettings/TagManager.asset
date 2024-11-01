@@ -8,6 +8,7 @@ TagManager:
   - Right
   - Plataform
   - Left
+  - Direction
   layers:
   - Default
   - TransparentFX
