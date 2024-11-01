@@ -5,21 +5,23 @@ using UnityEngine.EventSystems;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    private GameManager gameManager;
+    public float moveSpeed;
+    public float gridSize = 1f;
 
-    public int movementDirection;
-    public float gridSize;
     private void Start()
     {
-        GameManager gameManager = FindObjectOfType<GameManager>();
-        rb = GetComponent<Rigidbody2D>();
+        // Encontra o objeto GameManager
+        gameManager = FindObjectOfType<GameManager>();
+    
     }
 
-    public void MoveCharacter(int index)
+    public void MoveCharacter(int index) //Movimentação
     {
+        int movementDirection = -5;
         if (index == 1)
         {
-            transform.Translate(Vector3.left * movementDirection * gridSize);
+           transform.Translate(Vector3.left * movementDirection * gridSize);
         }
         else if (index == 2)
         {
@@ -27,17 +29,7 @@ public class PlayerCharacter : MonoBehaviour
         }
         else if (index == 3)
         {
-            transform.Translate(Vector3.up * -movementDirection * gridSize);
+            transform.Translate(Vector3.up * - movementDirection * gridSize);
         }
-
-        else if (index == 4)
-        {
-            transform.Translate(Vector3.up * movementDirection * gridSize);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Colidiu com uma parede!");
     }
 }

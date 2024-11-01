@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private UnityEngine.Vector2 _playerDirection;
     private Animator animator;
+ 
+    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -19,6 +21,8 @@ public class Player : MonoBehaviour
     {
          rig = GetComponent<Rigidbody2D>();
     }
+
+    // Update is called once per frame
     void Update()
     {
         _playerDirection = new UnityEngine.Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
