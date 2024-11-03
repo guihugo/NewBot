@@ -17,8 +17,8 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
+  - SolidObjects
+  - PossibleToMove
   - 
   - 
   - 
@@ -66,4 +66,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 610963701
+    locked: 0
+  - name: PossibleToMove
+    uniqueID: 979750713
     locked: 0
