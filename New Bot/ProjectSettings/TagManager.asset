@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Up
+  - Right
+  - Plataform
+  - Left
   layers:
   - Default
   - TransparentFX
@@ -38,20 +42,29 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Landscape
-    uniqueID: 985377715
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 745378479
+  - name: LandScape
+    uniqueID: 2743187547
+    locked: 0
+  - name: Map
+    uniqueID: 432159235
+    locked: 0
+  - name: BackGround
+    uniqueID: 381133247
+    locked: 0
+  - name: Border
+    uniqueID: 883554709
+    locked: 0
+  - name: SolidObjects
+    uniqueID: 2416405301
     locked: 0
   - name: Player
-    uniqueID: 230856453
+    uniqueID: 3694832831
     locked: 0
   - name: Foreground
-    uniqueID: 3474962495
+    uniqueID: 610963701
     locked: 0
   - name: PossibleToMove
     uniqueID: 979750713
