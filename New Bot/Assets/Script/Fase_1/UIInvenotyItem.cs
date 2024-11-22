@@ -21,6 +21,7 @@ namespace Inventory.UI
 
         private UIInventoryPage inventoryPage;
 
+        public int Index;
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
@@ -30,7 +31,6 @@ namespace Inventory.UI
         }
         public void OnDrop(PointerEventData eventData)
         {
-            Debug.Log("Drop");
             if (eventData.pointerDrag != null && anchoredGameObj == null)
             {
                 anchoredGameObj = Instantiate(eventData.pointerDrag, this.gameObject.transform, true);
@@ -44,13 +44,27 @@ namespace Inventory.UI
                 inventoryPage.InitializeInventoryUI(1);
 
                 gameManager.Numeros.Add(directionValue);
-
-                // Adiciona à fila de ações uma posição após a posição atual na fila.
-                //GameObject.Find("PainelAcoes").GetComponent<PainelAcoes>().Add(queuePosition + 1);
-
-                // Adiciona à fila de arrasto o objeto ancorado e a posição atual na fila.
-                //GameObject.Find("PainelAcoes").GetComponent<Fila>().Add(anchoredGameObj, queuePosition);
             }
+
+            if (eventData.pointerDrag != null && anchoredGameObj != null)
+            {
+                Destroy(anchoredGameObj);
+                anchoredGameObj = Instantiate(eventData.pointerDrag, this.gameObject.transform, true);
+                anchoredGameObj.GetComponent<RectTransform>().position = rectTransform.position;
+                anchoredGameObj.GetComponent<RectTransform>().rotation = rectTransform.rotation;
+                anchoredGameObj.GetComponent<RectTransform>().localScale = rectTransform.localScale;
+                anchoredGameObj.GetComponent<Direction>().Anchor(this.gameObject);
+
+                int directionValue = anchoredGameObj.GetComponent<Direction>().direction;
+
+                int index = this.Index - 1;
+                gameManager.Numeros[index] = directionValue;
+            }
+        }
+
+        public void OnClick(PointerEventData eventData)
+        {
+            Debug.Log("Click");
         }
     }
 }

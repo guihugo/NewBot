@@ -23,6 +23,7 @@ namespace Inventory.UI
         public Sprite image;
         public int quantity;
 
+        public int count;
         private void Awake()
         {
             InitializeInventoryUI(1);
@@ -39,7 +40,10 @@ namespace Inventory.UI
                 RectTransform rectTransform = uiItem.GetComponent<RectTransform>();
                 rectTransform.anchoredPosition3D = Vector3.zero;
                 rectTransform.localScale = Vector3.one;
-
+                
+                count++;
+                uiItem.Index = count;
+                
                 listOfUIItems.Add(uiItem);
                 
             }
