@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1537014727}
-  direction: 0
+  direction: 4
 --- !u!225 &671040680
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2121,7 +2121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1537014727}
-  direction: 0
+  direction: 2
 --- !u!225 &1200024934
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2255,6 +2255,7 @@ MonoBehaviour:
   contentPanel: {fileID: 799040504}
   image: {fileID: 0}
   quantity: 0
+  count: 0
 --- !u!114 &1296053741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2362,7 +2363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1537014727}
-  direction: 0
+  direction: 3
 --- !u!225 &1321805852
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2978,7 +2979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1537014727}
-  direction: 0
+  direction: 1
 --- !u!225 &1696926928
 CanvasGroup:
   m_ObjectHideFlags: 0

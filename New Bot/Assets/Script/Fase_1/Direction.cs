@@ -1,3 +1,5 @@
+using Inventory.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +12,11 @@ public class Direction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
 
-
     public int direction;
 
-    private bool isAnchored;
+    public bool isAnchored;
 
+    private GameManager gameManager;
     private GameObject clonedObject;
 
     private GameObject anchoredPlaceholder;
@@ -24,6 +26,7 @@ public class Direction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         isAnchored = false;
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        gameManager = FindObjectOfType<GameManager>();
 
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -38,7 +41,12 @@ public class Direction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         else
         {
-            //GameObject.Find("InventoryContent").GetComponent<Fila>().Add(null, anchoredPlaceholder.GetComponent<DND_DropReceiver>().GetPosition());
+            GameObject parentObject = transform.parent.gameObject;
+
+            UIInventoryItem uIInventoryItem = parentObject.GetComponent<UIInventoryItem>();
+            
+            int index = uIInventoryItem.Index - 1;
+            gameManager.Numeros.RemoveAt(index);
         }
 
         canvasGroup.alpha = 0.6f;
