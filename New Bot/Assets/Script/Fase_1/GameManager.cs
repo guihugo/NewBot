@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < Numeros.Count; i++) 
         {
-            Debug.Log("Iniciando");
-
             int x = Numeros[i];
             player.MoveCharacter(x);
 
