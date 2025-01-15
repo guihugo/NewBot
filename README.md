@@ -1,7 +1,9 @@
 # NewBot
 
 Jogo Educativo para Desenvolvimento do Pensamento Computacional
+
 🎮 Descrição
+
 Este é um jogo educativo desenvolvido para alunos do ensino fundamental, com o objetivo de promover o desenvolvimento do pensamento computacional de forma interativa e lúdica.
 
 Através de desafios e mecânicas acessíveis, o jogo busca incentivar habilidades como:
