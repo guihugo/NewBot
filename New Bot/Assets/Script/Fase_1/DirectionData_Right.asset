@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: DirectionData_Right
   m_EditorClassIdentifier: 
   directionName: Right
-  directionValue: 1
-  icon: {fileID: 21300000, guid: 546e1b32d08ef4f4b8683fecfc12deba, type: 3}
+  directionValue: 2
