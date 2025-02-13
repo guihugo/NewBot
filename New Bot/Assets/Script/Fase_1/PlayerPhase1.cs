@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerPhase1 : MonoBehaviour
 {
     private Rigidbody2D rb;
 
@@ -36,4 +36,8 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision");
+    }
 }
