@@ -7,13 +7,15 @@ public class PlayerPhase1 : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public int movementDirection;
-    public float gridSize;
-    private bool isMoving = false;
+    public int movementDirection { get; set; }
+    public float gridSize { get; set; }
+    public bool isMoving = false;
     public float moveSpeed = 5f;
 
     private void Start()
-    {
+    {   
+        this.movementDirection = -5;
+        this.gridSize = 0.5f;
         GameManager gameManager = FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -22,45 +24,45 @@ public class PlayerPhase1 : MonoBehaviour
     {
         if (!isMoving)
         {
-            Vector3 moveVector = Vector3.zero;
+            Vector2 moveVector = Vector2.zero;
 
             if (index == 1)
             {
-                moveVector = Vector3.left * movementDirection;
+                moveVector = Vector2.left * movementDirection;
             }
             else if (index == 2)
             {
-                moveVector = Vector3.right * movementDirection;
+                moveVector = Vector2.right * movementDirection;
             }
             else if (index == 3)
             {
-                moveVector = Vector3.down * movementDirection;
+                moveVector = Vector2.down * movementDirection;
             }
             else if (index == 4)
             {
-                moveVector = Vector3.up * movementDirection;
+                moveVector = Vector2.up * movementDirection;
             }
 
-            if (moveVector != Vector3.zero)
+            if (moveVector != Vector2.zero)
             {
                 StartCoroutine(MoveSmoothly(moveVector));
             }
         }
     }
 
-    private IEnumerator MoveSmoothly(Vector3 direction)
+    private IEnumerator MoveSmoothly(Vector2 direction)
     {
         isMoving = true;
 
-        Vector3 startPosition = transform.position;
-        Vector3 targetPosition = startPosition + direction * gridSize;
+        Vector2 startPosition = transform.position;
+        Vector2 targetPosition = startPosition + direction * gridSize;
 
         float elapsedTime = 0f;
         float duration = gridSize / moveSpeed;
 
         while (elapsedTime < duration)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            transform.position = Vector2.Lerp(startPosition, targetPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
