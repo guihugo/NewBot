@@ -2,7 +2,7 @@ using Inventory.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-// Hallo Welt
+
 public class Direction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] public Canvas canvas;
