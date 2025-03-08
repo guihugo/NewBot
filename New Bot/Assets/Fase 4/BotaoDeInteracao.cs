@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BotaoDeInteracao : MonoBehaviour
 {
+    public event Action naAreaDeInteracao;
+    public event Action SaiuAreaDeInteracao;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +23,15 @@ public class BotaoDeInteracao : MonoBehaviour
     {
         if( collision.CompareTag("Player") )
         {
-            print("foi");
+            naAreaDeInteracao.Invoke();
         }
         
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            SaiuAreaDeInteracao.Invoke();
+        }
     }
 }
