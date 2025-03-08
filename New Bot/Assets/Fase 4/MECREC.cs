@@ -5,23 +5,30 @@ using UnityEngine;
 
 public class MECREC : MonoBehaviour
 {
-
-    public BotaoDeInteracao BotaoDeInteracao;
+    public MECRECGerenciador eventos;
+    //public BotaoDeInteracao BotaoDeInteracao;
     public Transform AreadeInteracao, Menu;
-    public InteracaoPLayer InteracaoPLayer;
+    //public InteracaoPLayer InteracaoPLayer;
 
 
     private void OnEnable()
     {
-        BotaoDeInteracao.naAreaDeInteracao += EntrouAreaDeInteracao;
-        BotaoDeInteracao.SaiuAreaDeInteracao += SaiuAreaDeInteracao;
-        InteracaoPLayer.PressE += Interagiu;
+        //BotaoDeInteracao.naAreaDeInteracao += EntrouAreaDeInteracao;
+        //BotaoDeInteracao.SaiuAreaDeInteracao += SaiuAreaDeInteracao;
+        //InteracaoPLayer.PressE += Interagiu;
+        eventos.naAreaDeInteracao.AddListener(EntrouAreaDeInteracao);
+        eventos.saiuAreaDeInteracao.AddListener(SaiuAreaDeInteracao);
+        eventos.interagiu.AddListener(Interagiu);
+
     }
     private void OnDisable()
     {
-        BotaoDeInteracao.naAreaDeInteracao -= EntrouAreaDeInteracao;
-        BotaoDeInteracao.SaiuAreaDeInteracao -= SaiuAreaDeInteracao;
-        InteracaoPLayer.PressE -= Interagiu;
+        //BotaoDeInteracao.naAreaDeInteracao -= EntrouAreaDeInteracao;
+        //BotaoDeInteracao.SaiuAreaDeInteracao -= SaiuAreaDeInteracao;
+        //InteracaoPLayer.PressE -= Interagiu;
+        eventos.naAreaDeInteracao.RemoveListener(EntrouAreaDeInteracao);
+        eventos.saiuAreaDeInteracao.RemoveListener(SaiuAreaDeInteracao);
+        eventos.interagiu.RemoveListener(Interagiu);
     }
     // Start is called before the first frame update
     void Start()

@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class BotaoDeInteracao : MonoBehaviour
 {
-    public event Action naAreaDeInteracao;
-    public event Action SaiuAreaDeInteracao;
+    //public event Action naAreaDeInteracao;
+    //public event Action SaiuAreaDeInteracao;
+    public MECRECGerenciador eventos;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,8 @@ public class BotaoDeInteracao : MonoBehaviour
     {
         if( collision.CompareTag("Player") )
         {
-            naAreaDeInteracao.Invoke();
+            //naAreaDeInteracao.Invoke();
+            eventos.DispararNaAreaDeInteracao();
         }
         
     }
@@ -31,7 +33,8 @@ public class BotaoDeInteracao : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SaiuAreaDeInteracao.Invoke();
+            //SaiuAreaDeInteracao.Invoke();
+            eventos.DispararSaiuAreaDeInteracao();
         }
     }
 }

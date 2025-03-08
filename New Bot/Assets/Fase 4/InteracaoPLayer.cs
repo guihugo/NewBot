@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class InteracaoPLayer : MonoBehaviour
 {
-    public event Action PressE;
+    //public event Action PressE;
+    public MECRECGerenciador eventos;
     void Start()
     {
         
@@ -16,7 +17,7 @@ public class InteracaoPLayer : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            PressE?.Invoke();
+            eventos.DispararInteragiu();
         }
     }
 }
