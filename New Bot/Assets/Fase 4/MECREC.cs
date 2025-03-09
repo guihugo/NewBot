@@ -60,7 +60,8 @@ public class MECREC : MonoBehaviour
         Menu.gameObject.SetActive(true);
     }
 
-    //Função para encontrar os filhos de MECREC
+    //Função para encontrar os filhos de MECREC que é um encapsulador.
+    //Filhos são os outros gameObject dentro de MECREC.
     Transform FindDeepChild(Transform parent, string name)
     {
         foreach (Transform child in parent)
