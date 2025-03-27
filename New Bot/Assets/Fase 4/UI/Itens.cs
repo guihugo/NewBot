@@ -6,26 +6,26 @@ using UnityEngine.UI;
 public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
 
-    private Transform parentBeforeDrag;
+    public Transform parentBeforeDrag;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private RectTransform rectTransform;
     private Canvas canvas;
-    private Vector2 posicaoInicial;
+    public Vector2 posicaoInicial;
     private bool locked = false;
    
 
     public void Start()
     {
-       
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>(); // Obtém o Canvas automaticamente
-        posicaoInicial = rectTransform.localPosition;
+        posicaoInicial = Vector2.zero;
+        
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        parentBeforeDrag = transform;
+        
         if (canvas == null || canvasGroup == null)
         {
             Start();
@@ -55,10 +55,12 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
         // Tenta detectar um DropContainer válido
         GameObject dropTarget = GetDropTarget(eventData);
+        
         if (dropTarget != null && dropTarget.CompareTag("DropContainer"))
         {
             transform.SetParent(dropTarget.transform, false); // Define o container como novo pai
             locked = true;
+            Debug.Log("foi");
             // Converte a posição do mouse para o espaço local do novo container
             Vector2 localPoint;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -69,7 +71,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         }
         else
         {
-            transform.SetParent(parentBeforeDrag, false); // Volta ao local original
+            transform.transform.SetParent(parentBeforeDrag, false); // Volta ao local original
             rectTransform.anchoredPosition = posicaoInicial; // Garante que fique no lugar certo
         }
     }

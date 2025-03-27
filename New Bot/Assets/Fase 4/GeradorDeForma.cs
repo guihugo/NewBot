@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GeradorDeForma : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
+public class GeradorDeForma : MonoBehaviour, IPointerClickHandler
 {
     public MECRECGerenciador gerente;
     RectTransform rectTransform;
@@ -47,18 +47,14 @@ public class GeradorDeForma : MonoBehaviour, IPointerClickHandler, IBeginDragHan
 
         // Criar a nova instância
         GameObject novaForma = Instantiate( objForma , this.rectTransform.anchoredPosition, Quaternion.identity);
+        
+        novaForma.GetComponent<Itens>().parentBeforeDrag = transform;
+        novaForma.transform.SetParent(transform, false);   
 
         // Configurar a nova forma dentro do Canvas
         RectTransform novaFormaRect = novaForma.GetComponent<RectTransform>();
         novaFormaRect.SetParent(this.transform.parent, false);
-        novaFormaRect.anchoredPosition = rectTransform.anchoredPosition;
-        novaFormaRect.localScale = Vector3.one;
 
-        
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
         
     }
     
