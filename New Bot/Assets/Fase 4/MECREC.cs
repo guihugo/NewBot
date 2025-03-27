@@ -7,9 +7,10 @@ public class MECREC : MonoBehaviour
 {
     public MECRECGerenciador eventos;
     //public BotaoDeInteracao BotaoDeInteracao;
-    public Transform AreadeInteracao, Menu;
+    public Transform AreaDeInteracao, Menu;
     //public InteracaoPLayer InteracaoPLayer;
 
+    
 
     private void OnEnable()
     {
@@ -33,7 +34,7 @@ public class MECREC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AreadeInteracao = FindDeepChild(transform, "Botao de interacao");
+        AreaDeInteracao = FindDeepChild(transform, "Botao de interacao");
         Menu = FindDeepChild(transform, "Menu Rec");
     }
 
@@ -46,17 +47,17 @@ public class MECREC : MonoBehaviour
     public void EntrouAreaDeInteracao()
     {
         
-        AreadeInteracao.gameObject.SetActive(true);
+        AreaDeInteracao.gameObject.SetActive(true);
     }
     public void SaiuAreaDeInteracao()
     {
         
-        AreadeInteracao.gameObject.SetActive(false);
+        AreaDeInteracao.gameObject.SetActive(false);
     }
 
     public void Interagiu()
     {
-        AreadeInteracao.gameObject.SetActive(false);
+        AreaDeInteracao.gameObject.SetActive(false);
         Menu.gameObject.SetActive(true);
     }
 

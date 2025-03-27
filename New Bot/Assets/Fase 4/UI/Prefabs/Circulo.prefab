@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6034642074074558818}
   - component: {fileID: 4550927549182064801}
   - component: {fileID: 4758979602367458923}
-  - component: {fileID: 2110139876534354446}
+  - component: {fileID: -4695356276581568208}
   m_Layer: 5
   m_Name: Circulo
   m_TagString: Untagged
@@ -89,7 +89,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2110139876534354446
+--- !u!114 &-4695356276581568208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,8 +98,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8987500144985573746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5532974edb55966409d4ac8d10edc63d, type: 3}
+  m_Script: {fileID: 11500000, guid: d07479097c21f0f42a5ab5adf8a1380d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchoredGameObj: {fileID: 0}
-  Index: 0

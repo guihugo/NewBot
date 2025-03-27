@@ -5,19 +5,21 @@ using UnityEngine;
 
 public class GeradorDePadrao : MonoBehaviour
 {
-    public int sequencia;
     public GameObject itemPrefab;
     public RectTransform contentPanel;
     public List<GameObject> listOfUItems = new List<GameObject>();
     public int cont;
     private float x = -180, y = 124;
-    
+
+    public MECRECGerenciador gerente; // para requisições do ScriptableObject
+
 
     // Start is called before the first frame update
     void Start()
     {
         contentPanel = GetComponent<RectTransform>();
         InitializeInventoryUI(cont);
+        
     }
 
     // Update is called once per frame
