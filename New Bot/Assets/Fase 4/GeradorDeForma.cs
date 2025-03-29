@@ -54,8 +54,6 @@ public class GeradorDeForma : MonoBehaviour, IPointerClickHandler
         // Configurar a nova forma dentro do Canvas
         RectTransform novaFormaRect = novaForma.GetComponent<RectTransform>();
         novaFormaRect.SetParent(this.transform.parent, false);
-
-        
     }
     
     public void SetForma(GameObject obj)

@@ -18,7 +18,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     {
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
-        canvas = GetComponentInParent<Canvas>(); // Obtém o Canvas automaticamente
+        canvas = GetComponentInParent<Canvas>();        // Obtém o Canvas automaticamente
         posicaoInicial = Vector2.zero;
         
     }
@@ -51,7 +51,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true; // Permite que o item seja detectado novamente
-        canvasGroup.alpha = 1f; // Restaura a opacidade
+        canvasGroup.alpha = 1f;            // Restaura a opacidade
 
         // Tenta detectar um DropContainer válido
         GameObject dropTarget = GetDropTarget(eventData);
@@ -88,7 +88,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
         foreach (RaycastResult result in results)
         {
-            if (result.gameObject.CompareTag("DropContainer"))
+            if (result.gameObject.CompareTag("DropContainer") )
             {
                 return result.gameObject;
             }

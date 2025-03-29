@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e34babad76849245aa7719d021f32ff, type: 3}
   m_Name: Teste
   m_EditorClassIdentifier: 
-  sequencia: 0
+  sequenciaCorreta: 123123123
   naAreaDeInteracao:
     m_PersistentCalls:
       m_Calls: []
@@ -26,3 +26,5 @@ MonoBehaviour:
   - {fileID: 2978991936096795894, guid: 240a91e33caaea345b99e646c9dc3159, type: 3}
   - {fileID: 9080293412150040047, guid: e8779cffa9aa09e4092d94af2737c3e6, type: 3}
   - {fileID: 8987500144985573746, guid: 4f9138d3297f89c49895160064ee297e, type: 3}
+  container: {fileID: 3011952725117517874, guid: 825f9467995eb344da52fe9f54bfeb86, type: 3}
+  formas: 0

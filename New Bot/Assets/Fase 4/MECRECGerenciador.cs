@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class MECRECGerenciador : ScriptableObject
 {
 
-    public int sequencia;
+    [SerializeField] public List<int> sequenciaCorreta = new List<int>();
     public UnityEvent naAreaDeInteracao;
     public UnityEvent saiuAreaDeInteracao;
     public UnityEvent interagiu;
@@ -18,13 +18,16 @@ public class MECRECGerenciador : ScriptableObject
     //public event Action<GameObject> SendForma;
 
     public List<GameObject> Itens = new List<GameObject>();
+    public GameObject container;
+    public Formas formas; // variável para consultas
 
     
     public enum Formas
     {
-        Triangulo = 0,
-        Quadrado = 1,
-        Circulo = 2
+        Triangulo = 1,
+        Quadrado = 2,
+        Circulo = 3,
+        Vazio = 4,
     }
     public void DispararNaAreaDeInteracao() => naAreaDeInteracao?.Invoke();
     public void DispararSaiuAreaDeInteracao() => saiuAreaDeInteracao?.Invoke();
@@ -37,9 +40,7 @@ public class MECRECGerenciador : ScriptableObject
         GameObject obj = null;
         if (Enum.TryParse(forma, true, out Formas formaEncontrada))
         {
-            Debug.Log(formaEncontrada);
-            obj = Itens[(int)formaEncontrada];
-            
+            obj = Itens[(int)formaEncontrada - 1 ];            
         }
         return obj;
     }

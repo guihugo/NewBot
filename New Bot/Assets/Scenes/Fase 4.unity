@@ -6160,11 +6160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222431ce1ded83f4fb2afb8ac4df5654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 3011952725117517874, guid: 825f9467995eb344da52fe9f54bfeb86, type: 3}
+  itemPrefab: {fileID: 0}
   contentPanel: {fileID: 0}
   listOfUItems: []
-  cont: 10
-  gerente: {fileID: 0}
+  quantidade: 10
+  quebra: 3
+  gerente: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
 --- !u!1 &1307768694
 GameObject:
   m_ObjectHideFlags: 0
