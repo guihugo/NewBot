@@ -10,7 +10,7 @@ public class GeradorDeForma : MonoBehaviour, IPointerClickHandler
     RectTransform rectTransform;
     //public event Action<String> requestForma;
 
-    [SerializeField] public Forma forma;
+    [SerializeField] public MECRECGerenciador.Formas forma;
 
     public GameObject objForma;
     public enum Forma

@@ -5,31 +5,26 @@ using UnityEngine;
 
 public class MECREC : MonoBehaviour
 {
-    public MECRECGerenciador eventos;
-    //public BotaoDeInteracao BotaoDeInteracao;
+    public MECRECGerenciador gerente;
     public Transform AreaDeInteracao, Menu;
-    //public InteracaoPLayer InteracaoPLayer;
+    
 
     
 
     private void OnEnable()
     {
-        //BotaoDeInteracao.naAreaDeInteracao += EntrouAreaDeInteracao;
-        //BotaoDeInteracao.SaiuAreaDeInteracao += SaiuAreaDeInteracao;
-        //InteracaoPLayer.PressE += Interagiu;
-        eventos.naAreaDeInteracao.AddListener(EntrouAreaDeInteracao);
-        eventos.saiuAreaDeInteracao.AddListener(SaiuAreaDeInteracao);
-        eventos.interagiu.AddListener(Interagiu);
+        // Eventos para detecção de aproximação do player
+        gerente.naAreaDeInteracao.AddListener(EntrouAreaDeInteracao);
+        gerente.saiuAreaDeInteracao.AddListener(SaiuAreaDeInteracao);
+        gerente.interagiu.AddListener(Interagiu);
 
     }
     private void OnDisable()
     {
-        //BotaoDeInteracao.naAreaDeInteracao -= EntrouAreaDeInteracao;
-        //BotaoDeInteracao.SaiuAreaDeInteracao -= SaiuAreaDeInteracao;
-        //InteracaoPLayer.PressE -= Interagiu;
-        eventos.naAreaDeInteracao.RemoveListener(EntrouAreaDeInteracao);
-        eventos.saiuAreaDeInteracao.RemoveListener(SaiuAreaDeInteracao);
-        eventos.interagiu.RemoveListener(Interagiu);
+        // Eventos para detecção de aproximação do player
+        gerente.naAreaDeInteracao.RemoveListener(EntrouAreaDeInteracao);
+        gerente.saiuAreaDeInteracao.RemoveListener(SaiuAreaDeInteracao);
+        gerente.interagiu.RemoveListener(Interagiu);
     }
     // Start is called before the first frame update
     void Start()
@@ -38,12 +33,9 @@ public class MECREC : MonoBehaviour
         Menu = FindDeepChild(transform, "Menu Rec");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
+    // Funções para 
     public void EntrouAreaDeInteracao()
     {
         
@@ -54,15 +46,13 @@ public class MECREC : MonoBehaviour
         
         AreaDeInteracao.gameObject.SetActive(false);
     }
-
     public void Interagiu()
     {
         AreaDeInteracao.gameObject.SetActive(false);
         Menu.gameObject.SetActive(true);
     }
 
-    //Função para encontrar os filhos de MECREC que é um encapsulador.
-    //Filhos são os outros gameObject dentro de MECREC.
+    //Função para encontrar os filhos de MECREC que é um encapsulador.(Filhos são os outros gameObject dentro de MECREC)
     Transform FindDeepChild(Transform parent, string name)
     {
         foreach (Transform child in parent)

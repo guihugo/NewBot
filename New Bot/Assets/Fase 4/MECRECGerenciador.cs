@@ -10,6 +10,9 @@ public class MECRECGerenciador : ScriptableObject
 {
 
     [SerializeField] public List<int> sequenciaCorreta = new List<int>();
+    [SerializeField] public List<int> sequenciaInicial = new List<int>();
+    [SerializeField] public List<int> sequenciaPlayer = new List<int>();
+
     public UnityEvent naAreaDeInteracao;
     public UnityEvent saiuAreaDeInteracao;
     public UnityEvent interagiu;

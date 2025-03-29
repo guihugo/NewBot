@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e34babad76849245aa7719d021f32ff, type: 3}
   m_Name: Teste
   m_EditorClassIdentifier: 
-  sequenciaCorreta: 123123123
+  sequenciaCorreta: 010000000200000003000000010000000200000003000000010000000200000003000000
+  sequenciaInicial: 040000000200000003000000010000000400000003000000010000000200000004000000
+  sequenciaPlayer: 
   naAreaDeInteracao:
     m_PersistentCalls:
       m_Calls: []

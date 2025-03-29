@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gerente: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
-  forma: 2
+  forma: 3
   objForma: {fileID: 0}
 --- !u!114 &211723788
 MonoBehaviour:
@@ -1358,7 +1358,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.037589073, y: 0.014051914}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1369,7 +1369,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.418577, y: 3.7681255}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &406533666
 MonoBehaviour:
@@ -1380,7 +1380,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 406533663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6223682bdf54cc4e9c8ee028642f9ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c5b025ec9314b24487806725a64063f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventos: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
@@ -5783,7 +5783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gerente: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
-  forma: 0
+  forma: 1
   objForma: {fileID: 0}
 --- !u!114 &1014005769
 MonoBehaviour:
@@ -6165,6 +6165,8 @@ MonoBehaviour:
   listOfUItems: []
   quantidade: 10
   quebra: 3
+  x: -180
+  y: 124
   gerente: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
 --- !u!1 &1307768694
 GameObject:
@@ -6398,7 +6400,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.62, y: 1.74}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6448,8 +6450,8 @@ SpriteRenderer:
   m_SortingLayerID: -600134465
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.23891956, g: 0.8584906, b: 0.37130362, a: 1}
+  m_Sprite: {fileID: -1101661289, guid: bf366adb7186968458eacf891a5b2ee7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6489,7 +6491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7342647f371fd774aa7ff6ae2b26fb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventos: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
+  gerente: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
   AreaDeInteracao: {fileID: 0}
   Menu: {fileID: 0}
 --- !u!1 &1487516372
@@ -6913,7 +6915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gerente: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
-  forma: 1
+  forma: 2
   objForma: {fileID: 0}
 --- !u!114 &1712212840
 MonoBehaviour:
@@ -6958,24 +6960,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7805488897081901799, guid: be91f26b12769c54982abe53acbe2870, type: 3}
   m_PrefabInstance: {fileID: 1115888517291233551}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1804396403 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7500956828935083418, guid: be91f26b12769c54982abe53acbe2870, type: 3}
-  m_PrefabInstance: {fileID: 1115888517291233551}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1804396409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804396403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5b025ec9314b24487806725a64063f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventos: {fileID: 11400000, guid: 371863850f2c9394aad5b67d64b38901, type: 2}
 --- !u!1 &2029065600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7519,10 +7503,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7805488897081901799, guid: be91f26b12769c54982abe53acbe2870, type: 3}
       insertIndex: -1
       addedObject: {fileID: 519420032}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7500956828935083418, guid: be91f26b12769c54982abe53acbe2870, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1804396409}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be91f26b12769c54982abe53acbe2870, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

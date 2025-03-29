@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
-
-    public Transform parentBeforeDrag;
+    
+    public Transform parentBeforeDrag; // O ultimo parente antes de ser puxado pelo player
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private RectTransform rectTransform;
     private Canvas canvas;
-    public Vector2 posicaoInicial;
-    private bool locked = false;
+    public Vector2 posicaoInicial; // posição para ele voltar caso o Container esteja invalido
+    public bool locked = false; // Trava do item para ele ficar "paralisado"
    
 
     public void Start()
@@ -25,7 +25,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        
+        if (locked) return;
         if (canvas == null || canvasGroup == null)
         {
             Start();
@@ -37,7 +37,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (rectTransform == null || canvas == null) return;
+        if (rectTransform == null || canvas == null || locked ) return;
         // Converte a posição do mouse para coordenadas locais do Canvas
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -50,6 +50,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if(locked) return;
         canvasGroup.blocksRaycasts = true; // Permite que o item seja detectado novamente
         canvasGroup.alpha = 1f;            // Restaura a opacidade
 
@@ -59,8 +60,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         if (dropTarget != null && dropTarget.CompareTag("DropContainer"))
         {
             transform.SetParent(dropTarget.transform, false); // Define o container como novo pai
-            locked = true;
-            Debug.Log("foi");
+
             // Converte a posição do mouse para o espaço local do novo container
             Vector2 localPoint;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -88,7 +88,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
         foreach (RaycastResult result in results)
         {
-            if (result.gameObject.CompareTag("DropContainer") )
+            if (result.gameObject.CompareTag("DropContainer") && !result.gameObject.GetComponent<DropContainer>().isAchorned)
             {
                 return result.gameObject;
             }
@@ -98,7 +98,7 @@ public class Itens : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData != null && locked && eventData.clickCount == 2) // para deletar caso clique duas vezes
+        if (eventData != null && eventData.clickCount == 2 && !locked) // para deletar caso clique duas vezes
         {
             Destroy(this.gameObject);
         }
