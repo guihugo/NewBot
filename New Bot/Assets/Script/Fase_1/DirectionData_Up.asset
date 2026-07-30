@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DirectionData_Up
   m_EditorClassIdentifier: 
   directionName: Up
-  directionValue: 3
+  directionValue: 4

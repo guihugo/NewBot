@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void OnButtonPlayClick()
     {
+        Debug.Log("Start");
         player.StartCoroutine(Timer());
     }
     public void OnTutorialExitClick()
@@ -40,12 +41,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Timer()
     {
-        for (int i = 0; i < Numeros.Count; i++)
+        foreach (int movimento in Numeros)
         {
-            int x = Numeros[i];
-            player.MoveCharacter(x);
-
-            yield return new WaitForSeconds(1);
+            yield return StartCoroutine(player.MoveCharacter(movimento));
         }
     }
 }
