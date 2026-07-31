@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Direction
   - DropContainer
@@ -14,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Obstacle
   - SolidObjects
   - PossibleToMove
   - 
@@ -68,3 +68,5 @@ TagManager:
   - name: PossibleToMove
     uniqueID: 979750713
     locked: 0
+  m_RenderingLayers:
+  - Default
