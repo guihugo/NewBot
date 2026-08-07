@@ -27,6 +27,7 @@ public class InteracaoPLayer : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
+            Debug.Log("Pressionou E");
             mecrec.gerente.DispararInteragiu();
         }
     }

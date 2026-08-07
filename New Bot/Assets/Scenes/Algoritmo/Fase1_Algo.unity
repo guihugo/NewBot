@@ -770,7 +770,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1740948337287909728, guid: 73d6c80c839aaf144bb111c3d44d31d7, type: 3}
       propertyPath: m_Name
-      value: Tutorial (1)
+      value: Tutorial Bot
       objectReference: {fileID: 0}
     - target: {fileID: 1740948337287909728, guid: 73d6c80c839aaf144bb111c3d44d31d7, type: 3}
       propertyPath: m_IsActive
